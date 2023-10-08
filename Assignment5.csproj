@@ -13,6 +13,10 @@
     <None Remove="Resources\Images\Division.jpg" />
     <None Remove="Resources\Images\Multiplication.jpg" />
     <None Remove="Resources\Images\Subtraction.jpg" />
+    <None Remove="SS_Cherry_Wallpaper_04.png" />
+    <None Remove="wallpaper_minecraft_beach_3840x2160.png" />
+    <None Remove="wallpaper_minecraft_fireplace_3840x2160.png" />
+    <None Remove="wallpaper_minecraft_warm_ocean_3840x2160.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,6 +35,10 @@
     <Resource Include="Resources\Images\Subtraction.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="SS_Cherry_Wallpaper_04.png" />
+    <Resource Include="wallpaper_minecraft_beach_3840x2160.png" />
+    <Resource Include="wallpaper_minecraft_fireplace_3840x2160.png" />
+    <Resource Include="wallpaper_minecraft_warm_ocean_3840x2160.png" />
   </ItemGroup>
 
 </Project>

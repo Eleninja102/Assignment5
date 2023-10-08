@@ -1,7 +1,11 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <FontFamily x:Key = "Minecraft">/Resources/Fonts/#minecraft_font</FontFamily>
-    
-    
+    <FontFamily x:Key = "Minecraft">Resources/Fonts/#minecraft_font</FontFamily>
+
+    <ImageSource x:Key="AddMain">Resources/Images/Addition.jpg</ImageSource>
+    <ImageSource x:Key="SubMain">Resources/Images/Subtraction.jpg</ImageSource>
+    <ImageSource x:Key="MulMain">Resources/Images/Multiplication.jpg</ImageSource>
+    <ImageSource x:Key="DivMain">Resources/Images/Division.jpg</ImageSource>
+
 
 </ResourceDictionary>
