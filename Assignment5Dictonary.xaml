@@ -8,4 +8,35 @@
     <ImageSource x:Key="DivMain">Resources/Images/Division.jpg</ImageSource>
 
 
+    <ImageSource x:Key="Crimson1">Resources/Images/Wallpapers/Crimson (1).png</ImageSource>
+    <ImageSource x:Key="Crimson2">Resources/Images/Wallpapers/Crimson (2).png</ImageSource>
+    <ImageSource x:Key="Crimson3">Resources/Images/Wallpapers/Crimson (3).png</ImageSource>
+
+    <ImageSource x:Key="Desert1">Resources/Images/Wallpapers/Desert (1).png</ImageSource>
+    <ImageSource x:Key="Desert2">Resources/Images/Wallpapers/Desert (2).png</ImageSource>
+    <ImageSource x:Key="Desert3">Resources/Images/Wallpapers/Desert (3).png</ImageSource>
+    <ImageSource x:Key="Desert4">Resources/Images/Wallpapers/Desert (4).png</ImageSource>
+    <ImageSource x:Key="Desert5">Resources/Images/Wallpapers/Desert (5).png</ImageSource>
+
+    <ImageSource x:Key="Jungle1">Resources/Images/Wallpapers/Jungle (1).png</ImageSource>
+    <ImageSource x:Key="Jungle2">Resources/Images/Wallpapers/Jungle (2).png</ImageSource>
+    <ImageSource x:Key="Jungle4">Resources/Images/Wallpapers/Jungle (4).png</ImageSource>
+    <ImageSource x:Key="Jungle5">Resources/Images/Wallpapers/Jungle (5).png</ImageSource>
+    <ImageSource x:Key="Jungle6">Resources/Images/Wallpapers/Jungle (6).png</ImageSource>
+    <ImageSource x:Key="Jungle7">Resources/Images/Wallpapers/Jungle (7).png</ImageSource>
+    <ImageSource x:Key="Jungle8">Resources/Images/Wallpapers/Jungle (8).png</ImageSource>
+
+    <ImageSource x:Key="Warped1">Resources/Images/Wallpapers/Warped (1).png</ImageSource>
+    <ImageSource x:Key="Warped2">Resources/Images/Wallpapers/Warped (2).png</ImageSource>
+    <ImageSource x:Key="Warped3">Resources/Images/Wallpapers/Warped (3).png</ImageSource>
+    <ImageSource x:Key="Warped4">Resources/Images/Wallpapers/Warped (4).png</ImageSource>
+
+
+
+
+
+
+
+
+
 </ResourceDictionary>

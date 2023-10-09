@@ -13,10 +13,26 @@
     <None Remove="Resources\Images\Division.jpg" />
     <None Remove="Resources\Images\Multiplication.jpg" />
     <None Remove="Resources\Images\Subtraction.jpg" />
-    <None Remove="SS_Cherry_Wallpaper_04.png" />
-    <None Remove="wallpaper_minecraft_beach_3840x2160.png" />
-    <None Remove="wallpaper_minecraft_fireplace_3840x2160.png" />
-    <None Remove="wallpaper_minecraft_warm_ocean_3840x2160.png" />
+    <None Remove="Resources\Images\Wallpapers\Crimson %281%29.png" />
+    <None Remove="Resources\Images\Wallpapers\Crimson %282%29.png" />
+    <None Remove="Resources\Images\Wallpapers\Crimson %283%29.png" />
+    <None Remove="Resources\Images\Wallpapers\Desert %281%29.png" />
+    <None Remove="Resources\Images\Wallpapers\Desert %282%29.png" />
+    <None Remove="Resources\Images\Wallpapers\Desert %283%29.png" />
+    <None Remove="Resources\Images\Wallpapers\Desert %284%29.png" />
+    <None Remove="Resources\Images\Wallpapers\Desert %285%29.png" />
+    <None Remove="Resources\Images\Wallpapers\Jungle %281%29.png" />
+    <None Remove="Resources\Images\Wallpapers\Jungle %282%29.png" />
+    <None Remove="Resources\Images\Wallpapers\Jungle %283%29.png" />
+    <None Remove="Resources\Images\Wallpapers\Jungle %284%29.png" />
+    <None Remove="Resources\Images\Wallpapers\Jungle %285%29.png" />
+    <None Remove="Resources\Images\Wallpapers\Jungle %286%29.png" />
+    <None Remove="Resources\Images\Wallpapers\Jungle %287%29.png" />
+    <None Remove="Resources\Images\Wallpapers\Jungle %288%29.png" />
+    <None Remove="Resources\Images\Wallpapers\Warped %281%29.png" />
+    <None Remove="Resources\Images\Wallpapers\Warped %282%29.png" />
+    <None Remove="Resources\Images\Wallpapers\Warped %283%29.png" />
+    <None Remove="Resources\Images\Wallpapers\Warped %284%29.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -35,10 +51,66 @@
     <Resource Include="Resources\Images\Subtraction.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="SS_Cherry_Wallpaper_04.png" />
-    <Resource Include="wallpaper_minecraft_beach_3840x2160.png" />
-    <Resource Include="wallpaper_minecraft_fireplace_3840x2160.png" />
-    <Resource Include="wallpaper_minecraft_warm_ocean_3840x2160.png" />
+    <Resource Include="Resources\Images\Wallpapers\Crimson (1).png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Wallpapers\Crimson (2).png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Wallpapers\Crimson (3).png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Wallpapers\Desert (1).png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Wallpapers\Desert (2).png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Wallpapers\Desert (3).png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Wallpapers\Desert (4).png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Wallpapers\Desert (5).png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Wallpapers\Jungle (1).png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Wallpapers\Jungle (2).png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Wallpapers\Jungle (3).png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Wallpapers\Jungle (4).png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Wallpapers\Jungle (5).png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Wallpapers\Jungle (6).png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Wallpapers\Jungle (7).png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Wallpapers\Jungle (8).png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Wallpapers\Warped (1).png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Wallpapers\Warped (2).png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Wallpapers\Warped (3).png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Wallpapers\Warped (4).png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>
