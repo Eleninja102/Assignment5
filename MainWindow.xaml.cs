@@ -35,6 +35,10 @@ namespace Assignment5
 
         }
 
+        private void cmdStartGame_Click(object sender, RoutedEventArgs e)
+        {
 
+        
+        }
     }
 }

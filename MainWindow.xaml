@@ -51,7 +51,7 @@
         </Grid>
         <Label Content="Age:" HorizontalAlignment="Left" Margin="10,186,0,0" VerticalAlignment="Top" Width="245" FontFamily="Minecraft" FontSize="32" VerticalContentAlignment="Center" Height="50" Background="#FF9C9C9C"/>
         <TextBox HorizontalAlignment="Left" Margin="167,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="69" Height="42" FontSize="32" FontFamily="Minecraft" TextChanged="TextBox_TextChanged" TextAlignment="Center"/>
-        <Button Content="Start Game" HorizontalAlignment="Center" Margin="0,291,0,0" VerticalAlignment="Top" Height="52" Width="168" FontFamily="Minecraft" FontSize="20"/>
+        <Button x:Name="cmdStartGame" Content="Start Game" HorizontalAlignment="Center" Margin="0,291,0,0" VerticalAlignment="Top" Height="52" Width="168" FontFamily="Minecraft" FontSize="20" Click="cmdStartGame_Click"/>
 
     </Grid>
 </Window>

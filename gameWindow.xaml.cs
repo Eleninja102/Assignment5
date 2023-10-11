@@ -10,19 +10,23 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Assignment5.Resources
+namespace Assignment5
 {
     /// <summary>
-    /// Interaction logic for GamePage.xaml
+    /// Interaction logic for gameWindow.xaml
     /// </summary>
-    public partial class GamePage : Page
+    public partial class gameWindow : Window
     {
-        public GamePage()
+        public gameWindow()
         {
             InitializeComponent();
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

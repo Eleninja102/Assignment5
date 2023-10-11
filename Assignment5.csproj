@@ -81,9 +81,7 @@
     <Resource Include="Resources\Images\Wallpapers\Jungle (2).png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Images\Wallpapers\Jungle (3).png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+
     <Resource Include="Resources\Images\Wallpapers\Jungle (4).png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
