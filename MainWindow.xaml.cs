@@ -1,17 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Assignment5
 {
@@ -20,10 +9,32 @@ namespace Assignment5
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        gameWindow gameWindow;
         public MainWindow()
         {
             InitializeComponent();
+
+
+            Application.Current.ShutdownMode = ShutdownMode.OnMainWindowClose;
+            gameStart();
         }
+
+        private void gameStart()
+        {
+            lblNameError.Visibility = Visibility.Collapsed;
+            lblAgeError.Visibility = Visibility.Collapsed;
+            txtUsername.Text = User.UserName;
+            txtUsername.Text ="Test";
+
+            if (User.Age != 0)
+            {
+                txtAge.Text = User.Age.ToString();
+            }
+            txtAge.Text = "6";
+
+        }
+
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -37,8 +48,56 @@ namespace Assignment5
 
         private void cmdStartGame_Click(object sender, RoutedEventArgs e)
         {
+            int gameNum = 0;
+            if ((bool)rAddition.IsChecked)
+            {
+                gameNum = 0;
+            }
+            else if ((bool)rSubtraction.IsChecked)
+            {
+                gameNum = 1;
 
-        
+            }
+            else if ((bool)rMultiplication.IsChecked)
+            {
+                gameNum = 2;
+
+            }
+            else if ((bool)rDivision.IsChecked)
+            {
+                gameNum = 3;
+
+            }
+
+            if (User.setBoth(txtUsername.Text, txtAge.Text, gameNum))
+            {
+                lblNameError.Visibility = Visibility.Collapsed;
+                lblAgeError.Visibility = Visibility.Collapsed;
+                this.Hide();
+                gameWindow = new gameWindow();
+                gameWindow.ShowDialog();
+                this.Show();
+            }
+            else
+            {
+                lblAgeError.Visibility = Visibility.Visible;
+                lblNameError.Visibility = Visibility.Visible;
+            }
+        }
+
+
+        private void HandleError(string sClass, string sMethod, string sMessage)
+        {
+            try
+            {
+                //Would write to a file or database here.
+                MessageBox.Show(sClass + "." + sMethod + " -> " + sMessage);
+            }
+            catch (Exception ex)
+            {
+                System.IO.File.AppendAllText("C:\\Error.txt", Environment.NewLine +
+                                            "HandleError Exception: " + ex.Message);
+            }
         }
     }
 }

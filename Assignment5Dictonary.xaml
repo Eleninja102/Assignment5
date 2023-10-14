@@ -31,6 +31,9 @@
     <ImageSource x:Key="Warped3">Resources/Images/Wallpapers/Warped (3).png</ImageSource>
     <ImageSource x:Key="Warped4">Resources/Images/Wallpapers/Warped (4).png</ImageSource>
 
+    <ImageSource x:Key="Correct">Resources/Images/Correct.png</ImageSource>
+    <ImageSource x:Key="Incorrect">Resources/Images/Incorrect.png</ImageSource>
+
 
 
 

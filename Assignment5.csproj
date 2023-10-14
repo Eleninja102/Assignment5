@@ -10,8 +10,11 @@
   <ItemGroup>
     <None Remove="Resources\Fonts\minecraft_font.ttf" />
     <None Remove="Resources\Images\Addition.jpg" />
+    <None Remove="Resources\Images\Correct.png" />
     <None Remove="Resources\Images\Division.jpg" />
+    <None Remove="Resources\Images\Incorrect.png" />
     <None Remove="Resources\Images\Multiplication.jpg" />
+    <None Remove="Resources\Images\sign.jpg" />
     <None Remove="Resources\Images\Subtraction.jpg" />
     <None Remove="Resources\Images\Wallpapers\Crimson %281%29.png" />
     <None Remove="Resources\Images\Wallpapers\Crimson %282%29.png" />
@@ -42,10 +45,15 @@
     <Resource Include="Resources\Images\Addition.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Resources\Images\Correct.png" />
     <Resource Include="Resources\Images\Division.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Resources\Images\Incorrect.png" />
     <Resource Include="Resources\Images\Multiplication.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\sign.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Images\Subtraction.jpg">

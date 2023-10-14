@@ -19,12 +19,18 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="135*"/>
+                <RowDefinition Height="82*"/>
+            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Label Content="Name:" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top" Width="245" FontFamily="Minecraft" Height="58" FontSize="36" Background="#FF9C9C9C" Grid.Column="1"/>
-            <TextBox HorizontalAlignment="Left" Margin="132,92,0,0" VerticalAlignment="Top" Width="106" Height="30" TextAlignment="Center" FontFamily="Minecraft" FontSize="14" Grid.Column="1"/>
+            <Label Content="Name:" HorizontalAlignment="Center" Margin="0,78,0,0" VerticalAlignment="Top" Width="245" FontFamily="Minecraft" Height="58" FontSize="36" Background="#FF9C9C9C" Grid.Column="1"/>
+            <TextBox x:Name="txtUsername" HorizontalAlignment="Left" Margin="132,92,0,0" VerticalAlignment="Top" Width="106" Height="30" TextAlignment="Center" FontFamily="Minecraft" FontSize="14" Grid.Column="1"/>
+            <Label x:Name="lblNameError" Grid.Column="1" Content="Please Enter a Name" HorizontalAlignment="Center" Margin="0,127,0,0" VerticalAlignment="Top" Width="246" FontFamily="Minecraft" FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="Red"/>
+            <Label x:Name="lblAgeError" Grid.Column="1" Content="Age Between 3-10" HorizontalAlignment="Center" Margin="0,228,0,0" VerticalAlignment="Top" Width="246" FontFamily="Minecraft" FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="Red"/>
         </Grid>
 
         <Grid Grid.Column="1">
@@ -37,20 +43,20 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <RadioButton Content="Addition" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontFamily="Minecraft" FontSize="16"/>
+            <RadioButton x:Name="rAddition" Content="Addition" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontFamily="Minecraft" FontSize="16" IsChecked="True"/>
             <Image Margin="10,36,10,10" Source="{DynamicResource AddMain}"/>
 
-            <RadioButton x:Name="radioButton" Grid.Column="1" Content="Subtaction" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontFamily="Minecraft" FontSize="16"/>
+            <RadioButton x:Name="rSubtraction" Grid.Column="1" Content="Subtaction" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontFamily="Minecraft" FontSize="16"/>
             <Image Grid.Column="1" Margin="10,36,10,10" Source="{DynamicResource SubMain}"/>
 
-            <RadioButton Content="Multiplication" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="189" FontFamily="Minecraft" FontSize="16"/>
+            <RadioButton x:Name="rMultiplication" Content="Multiplication" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="189" FontFamily="Minecraft" FontSize="16"/>
             <Image Margin="10,36,10,10" Grid.Row="1" Source="{DynamicResource MulMain}"/>
 
-            <RadioButton Grid.Column="1" Content="Division" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" FontFamily="Minecraft" FontSize="16"/>
+            <RadioButton x:Name="rDivision" Grid.Column="1" Content="Division" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" FontFamily="Minecraft" FontSize="16"/>
             <Image Grid.Column="1" Margin="10,36,10,10" Grid.Row="1" Source="{DynamicResource DivMain}"/>
         </Grid>
         <Label Content="Age:" HorizontalAlignment="Left" Margin="10,186,0,0" VerticalAlignment="Top" Width="245" FontFamily="Minecraft" FontSize="32" VerticalContentAlignment="Center" Height="50" Background="#FF9C9C9C"/>
-        <TextBox HorizontalAlignment="Left" Margin="167,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="69" Height="42" FontSize="32" FontFamily="Minecraft" TextChanged="TextBox_TextChanged" TextAlignment="Center"/>
+        <TextBox x:Name="txtAge" HorizontalAlignment="Left" Margin="167,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="69" Height="42" FontSize="32" FontFamily="Minecraft" TextChanged="TextBox_TextChanged" TextAlignment="Center"/>
         <Button x:Name="cmdStartGame" Content="Start Game" HorizontalAlignment="Center" Margin="0,291,0,0" VerticalAlignment="Top" Height="52" Width="168" FontFamily="Minecraft" FontSize="20" Click="cmdStartGame_Click"/>
 
     </Grid>
