@@ -10,10 +10,11 @@ namespace Assignment5
         protected int solution;
         private int correctCount = 0;
         protected string username;
+        protected int age;
         protected TimeSpan timeTaken;
         protected int roundCounter = 0;
 
-        protected BaseGame(string username, int correctCount = 0, int timeTaken = 0)
+        protected BaseGame(string username, int age, int correctCount = 0, int timeTaken = 0)
         {
 
             try
@@ -21,6 +22,7 @@ namespace Assignment5
                 this.username = username;
                 this.correctCount = correctCount;
                 this.timeTaken = new TimeSpan(0, 0, timeTaken);
+                this.age = age;
             }
             catch (Exception ex)
             {
@@ -43,10 +45,19 @@ namespace Assignment5
         }
         public void setTime(Stopwatch sw)
         {
-            int seconds = (int)sw.Elapsed.TotalSeconds;
-            timeTaken = new TimeSpan(0, 0, seconds);
+            timeTaken = sw.Elapsed;
         }
-
+        public string Username
+        {
+            get
+            {
+                return username;
+            }
+        }
+        public int Age
+        {
+            get { return age; }
+        }
         public int CorrectCount
         {
             get { return correctCount; }
@@ -55,6 +66,21 @@ namespace Assignment5
         {
             get { return 10 - correctCount; }
         }
+        public string Time
+        {
+            get
+            {
+                if (timeTaken.TotalMinutes >= 1)
+                {
+                    return timeTaken.ToString(@"mm\:ss");
+                }
+                else
+                {
+                    return timeTaken.ToString(@"ss\.ff") + " seconds";
+                }
+            }
+        }
+        
 
         public abstract (int, int) setQuestion();
 
@@ -88,7 +114,7 @@ namespace Assignment5
 
     class Division : BaseGame
     {
-        public Division(string username, int correctCount = 0, int timeTaken = 0) : base(username, correctCount, timeTaken)
+        public Division(string username, int age, int correctCount = 0, int timeTaken = 0) : base(username, age, correctCount, timeTaken)
         {
 
         }
@@ -114,7 +140,7 @@ namespace Assignment5
 
     class Addition : BaseGame
     {
-        public Addition(string username, int correctCount = 0, int timeTaken = 0) : base(username, correctCount, timeTaken)
+        public Addition(string username, int age, int correctCount = 0, int timeTaken = 0) : base(username, age, correctCount, timeTaken)
         {
 
         }
@@ -139,7 +165,7 @@ namespace Assignment5
 
     class Subtraction : BaseGame
     {
-        public Subtraction(string username, int correctCount = 0, int timeTaken = 0) : base(username, correctCount, timeTaken)
+        public Subtraction(string username, int age, int correctCount = 0, int timeTaken = 0) : base(username, age, correctCount, timeTaken)
         {
 
         }
@@ -168,7 +194,7 @@ namespace Assignment5
 
     class Multiplication : BaseGame
     {
-        public Multiplication(string username, int correctCount = 0, int timeTaken = 0) : base(username, correctCount, timeTaken)
+        public Multiplication(string username, int age, int correctCount = 0, int timeTaken = 0) : base(username, age, correctCount, timeTaken)
         {
 
         }

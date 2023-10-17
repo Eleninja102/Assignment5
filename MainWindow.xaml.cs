@@ -11,6 +11,9 @@ namespace Assignment5
     {
 
         gameWindow gameWindow;
+        finalScoreWindow scoreWindow;
+
+
         public MainWindow()
         {
             InitializeComponent();
@@ -32,6 +35,8 @@ namespace Assignment5
                 txtAge.Text = User.Age.ToString();
             }
             txtAge.Text = "6";
+
+            LeaderBoards.fillStats(100);
 
         }
 
@@ -76,6 +81,13 @@ namespace Assignment5
                 this.Hide();
                 gameWindow = new gameWindow();
                 gameWindow.ShowDialog();
+
+                if (gameWindow.GameOver == true)
+                {
+                    scoreWindow = new();
+                    scoreWindow.ShowDialog();
+                }
+
                 this.Show();
             }
             else
