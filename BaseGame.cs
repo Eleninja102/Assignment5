@@ -21,7 +21,7 @@ namespace Assignment5
             {
                 this.username = username;
                 this.correctCount = correctCount;
-                this.timeTaken = new TimeSpan(0, 0, timeTaken);
+                this.timeTaken = new TimeSpan(0, 0, 0, 0, timeTaken);
                 this.age = age;
             }
             catch (Exception ex)
@@ -45,47 +45,102 @@ namespace Assignment5
         }
         public void setTime(Stopwatch sw)
         {
-            timeTaken = sw.Elapsed;
+            try
+            {
+                timeTaken = sw.Elapsed;
+            }
+            catch (Exception ex)
+            {
+                //Just throw the exception
+                throw new Exception(MethodInfo.GetCurrentMethod().DeclaringType.Name + "." + MethodInfo.GetCurrentMethod().Name + " -> " + ex.Message);
+            }
+
         }
         public string Username
         {
             get
             {
-                return username;
+                try
+                {
+                    return username;
+
+                }
+                catch (Exception ex)
+                {
+                    //Just throw the exception
+                    throw new Exception(MethodInfo.GetCurrentMethod().DeclaringType.Name + "." + MethodInfo.GetCurrentMethod().Name + " -> " + ex.Message);
+                }
             }
         }
         public int Age
         {
-            get { return age; }
+            get
+            {
+                try
+                {
+                    return age;
+                }
+                catch (Exception ex)
+                {
+                    //Just throw the exception
+                    throw new Exception(MethodInfo.GetCurrentMethod().DeclaringType.Name + "." + MethodInfo.GetCurrentMethod().Name + " -> " + ex.Message);
+                }
+            }
         }
         public int CorrectCount
         {
-            get { return correctCount; }
+            get
+            {
+                try
+                {
+                    return correctCount;
+
+                }
+                catch (Exception ex)
+                {
+                    //Just throw the exception
+                    throw new Exception(MethodInfo.GetCurrentMethod().DeclaringType.Name + "." + MethodInfo.GetCurrentMethod().Name + " -> " + ex.Message);
+                }
+            }
         }
         public int IncorrectCount
         {
-            get { return 10 - correctCount; }
+            get
+            {
+                try
+                {
+                    return 10 - correctCount;
+                }
+                catch (Exception ex)
+                {
+                    //Just throw the exception
+                    throw new Exception(MethodInfo.GetCurrentMethod().DeclaringType.Name + "." + MethodInfo.GetCurrentMethod().Name + " -> " + ex.Message);
+                }
+            }
         }
         public string Time
         {
             get
             {
-                if (timeTaken.TotalMinutes >= 1)
+                try
                 {
-                    return timeTaken.ToString(@"mm\:ss");
+                    return timeTaken.ToString(@"mm\:ss\.ff");
+
                 }
-                else
+                catch (Exception ex)
                 {
-                    return timeTaken.ToString(@"ss\.ff") + " seconds";
+                    //Just throw the exception
+                    throw new Exception(MethodInfo.GetCurrentMethod().DeclaringType.Name + "." + MethodInfo.GetCurrentMethod().Name + " -> " + ex.Message);
                 }
             }
+
         }
-        
+
 
         public abstract (int, int) setQuestion();
 
         public bool checkSolution(string inputtedString)
-        { 
+        {
             try
             {
                 roundCounter += 1;
@@ -116,7 +171,15 @@ namespace Assignment5
     {
         public Division(string username, int age, int correctCount = 0, int timeTaken = 0) : base(username, age, correctCount, timeTaken)
         {
+            try
+            {
 
+            }
+            catch (Exception ex)
+            {
+                //Just throw the exception
+                throw new Exception(MethodInfo.GetCurrentMethod().DeclaringType.Name + "." + MethodInfo.GetCurrentMethod().Name + " -> " + ex.Message);
+            }
         }
 
         public override (int, int) setQuestion()
@@ -142,7 +205,15 @@ namespace Assignment5
     {
         public Addition(string username, int age, int correctCount = 0, int timeTaken = 0) : base(username, age, correctCount, timeTaken)
         {
+            try
+            {
 
+            }
+            catch (Exception ex)
+            {
+                //Just throw the exception
+                throw new Exception(MethodInfo.GetCurrentMethod().DeclaringType.Name + "." + MethodInfo.GetCurrentMethod().Name + " -> " + ex.Message);
+            }
         }
         public override (int, int) setQuestion()
         {
@@ -167,7 +238,15 @@ namespace Assignment5
     {
         public Subtraction(string username, int age, int correctCount = 0, int timeTaken = 0) : base(username, age, correctCount, timeTaken)
         {
+            try
+            {
 
+            }
+            catch (Exception ex)
+            {
+                //Just throw the exception
+                throw new Exception(MethodInfo.GetCurrentMethod().DeclaringType.Name + "." + MethodInfo.GetCurrentMethod().Name + " -> " + ex.Message);
+            }
         }
         public override (int, int) setQuestion()
         {
@@ -196,6 +275,15 @@ namespace Assignment5
     {
         public Multiplication(string username, int age, int correctCount = 0, int timeTaken = 0) : base(username, age, correctCount, timeTaken)
         {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                //Just throw the exception
+                throw new Exception(MethodInfo.GetCurrentMethod().DeclaringType.Name + "." + MethodInfo.GetCurrentMethod().Name + " -> " + ex.Message);
+            }
 
         }
         public override (int, int) setQuestion()

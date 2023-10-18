@@ -1,17 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Assignment5
 {
@@ -20,20 +9,67 @@ namespace Assignment5
     /// </summary>
     public partial class finalScoreWindow : Window
     {
-        static List<BaseGame> lSub = LeaderBoards.lSubtraction;
         public finalScoreWindow()
         {
-            InitializeComponent();
-            lbUsername.Content = User.UserName;
-            lbAge.Content += User.Age.ToString();
-            lbCorrect.Content += LeaderBoards.LastGame.CorrectCount.ToString();
-            lbIncorrect.Content += LeaderBoards.LastGame.IncorrectCount.ToString();
 
-            lbTime.Content += LeaderBoards.LastGame.Time;
+            try
+            {
+                InitializeComponent();
+                if (LeaderBoards.GameMode == 0)
+                {
+                    lbTitle.Content = "Addition";
+                }
+                else if (LeaderBoards.GameMode == 1)
+                {
+                    lbTitle.Content = "Subtraction";
+                }
+                else if (LeaderBoards.GameMode == 2)
+                {
+                    lbTitle.Content = "Multiplication";
+                }
+                else if (LeaderBoards.GameMode == 3)
+                {
+                    lbTitle.Content = "Division";
+                }
+                gbScore.ItemsSource = LeaderBoards.topTen();
+                if (LeaderBoards.LastGame == null)
+                {
+                    lbUsername.Visibility = Visibility.Collapsed;
+                    lbAge.Visibility = Visibility.Collapsed;
+                    lbCorrect.Visibility = Visibility.Collapsed;
+                    lbIncorrect.Visibility = Visibility.Collapsed;
+                    lbTime.Visibility = Visibility.Collapsed;
+                    lbLeaderboard.Visibility = Visibility.Collapsed;
+                   
+                }
+                else
+                {
 
-            gdLeaderBoard.ItemsSource = LeaderBoards.lAddition;
+                    foreach (BaseGame t in LeaderBoards.topTen())
+                    {
+                        if (t == LeaderBoards.LastGame)
+                        {
+                            lbLeaderboard.Content = "YOU MADE THE LEADERBOARDS!!";
+                        }
+                    }
 
+
+                    lbUsername.Content = LeaderBoards.LastGame.Username;
+                    lbAge.Content += LeaderBoards.LastGame.Age.ToString();
+                    lbCorrect.Content += LeaderBoards.LastGame.CorrectCount.ToString();
+                    lbIncorrect.Content += LeaderBoards.LastGame.IncorrectCount.ToString();
+                    lbTime.Content += LeaderBoards.LastGame.Time;
+                }
+            }
+            catch (Exception ex)
+            {
+                //Just throw the exception
+                throw new Exception(MethodInfo.GetCurrentMethod().DeclaringType.Name + "." + MethodInfo.GetCurrentMethod().Name + " -> " + ex.Message);
+            }
         }
+
+
+
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
 

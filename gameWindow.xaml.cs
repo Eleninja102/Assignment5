@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 
 namespace Assignment5
@@ -18,7 +19,7 @@ namespace Assignment5
         private DispatcherTimer correctTimer = new();
         private DispatcherTimer clock;
         private bool gameOver = false;
-
+        private readonly Random rnd = new Random();
         public gameWindow()
         {
             //Throw statement 
@@ -34,6 +35,33 @@ namespace Assignment5
                 correctTimer.Interval = TimeSpan.FromSeconds(0.5);
                 correctTimer.Tick += new EventHandler(updateScreen);
                 lbTime.Content = "";
+                switch (User.game)
+                {
+                    case 0:
+                        game = new Addition(User.UserName, User.Age);
+                        winGame.Background = new ImageBrush((ImageSource)FindResource($"Desert{rnd.Next(1, 6)}"));
+                        lbSymbol.Content = "+";
+                        break;
+                    case 1:
+                        game = new Subtraction(User.UserName, User.Age);
+                        winGame.Background = new ImageBrush((ImageSource)FindResource($"Jungle{rnd.Next(1, 9)}"));
+
+                        lbSymbol.Content = "-";
+
+                        break;
+                    case 2:
+                        game = new Multiplication(User.UserName, User.Age);
+                        winGame.Background = new ImageBrush((ImageSource)FindResource($"Warped{rnd.Next(1, 5)}"));
+
+                        lbSymbol.Content = "*";
+                        break;
+                    case 3:
+                        game = new Division(User.UserName, User.Age);
+                        winGame.Background = new ImageBrush((ImageSource)FindResource($"Crimson{rnd.Next(1, 4)}"));
+                        lbSymbol.Content = "/";
+                        break;
+
+                }
             }
             catch (Exception ex)
             {
@@ -111,29 +139,7 @@ namespace Assignment5
                 gdGameBoard.Visibility = Visibility.Visible;
                 cmdSubmit.Visibility = Visibility.Visible;
                 cmdStartGame.Visibility = Visibility.Collapsed;
-                switch (User.game)
-                {
-                    case 0:
-                        game = new Addition(User.UserName, User.Age);
-                        lbSymbol.Content = "+";
-                        break;
-                    case 1:
-                        game = new Subtraction(User.UserName, User.Age);
-                        lbSymbol.Content = "-";
-
-                        break;
-                    case 2:
-                        game = new Multiplication(User.UserName, User.Age);
-                        lbSymbol.Content = "*";
-                        break;
-                    case 3:
-                        game = new Division(User.UserName, User.Age);
-                        lbSymbol.Content = "/";
-
-                        break;
-
-                }
-
+                
                 updateBoard();
             }
             catch (Exception ex)

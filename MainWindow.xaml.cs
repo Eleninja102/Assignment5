@@ -1,6 +1,7 @@
 ﻿using System;
+using System.Media;
+using System.Reflection;
 using System.Windows;
-using System.Windows.Controls;
 
 namespace Assignment5
 {
@@ -12,88 +13,112 @@ namespace Assignment5
 
         gameWindow gameWindow;
         finalScoreWindow scoreWindow;
+        SoundPlayer simpleSound = new SoundPlayer("WetHands.wav");
+
+
 
 
         public MainWindow()
         {
-            InitializeComponent();
+
+            try
+            {
+                InitializeComponent();
+
+                simpleSound.PlayLooping();
 
 
-            Application.Current.ShutdownMode = ShutdownMode.OnMainWindowClose;
-            gameStart();
+
+                Application.Current.ShutdownMode = ShutdownMode.OnMainWindowClose;
+                gameStart();
+            }
+            catch (Exception ex)
+            {
+                //Just throw the exception
+                HandleError(MethodInfo.GetCurrentMethod().DeclaringType.Name, MethodInfo.GetCurrentMethod().Name, ex.Message);
+            }
         }
 
         private void gameStart()
         {
-            lblNameError.Visibility = Visibility.Collapsed;
-            lblAgeError.Visibility = Visibility.Collapsed;
-            txtUsername.Text = User.UserName;
-            txtUsername.Text ="Test";
 
-            if (User.Age != 0)
+            try
             {
-                txtAge.Text = User.Age.ToString();
+                lblNameError.Visibility = Visibility.Collapsed;
+                lblAgeError.Visibility = Visibility.Collapsed;
+                txtUsername.Text = User.UserName;
+
+                if (User.Age != 0)
+                {
+                    txtAge.Text = User.Age.ToString();
+                }
+                LeaderBoards.fillStats(100);
             }
-            txtAge.Text = "6";
-
-            LeaderBoards.fillStats(100);
-
-        }
-
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void RadioButton_Checked(object sender, RoutedEventArgs e)
-        {
+            catch (Exception ex)
+            {
+                //Just throw the exception
+                throw new Exception(MethodInfo.GetCurrentMethod().DeclaringType.Name + "." + MethodInfo.GetCurrentMethod().Name + " -> " + ex.Message);
+            }
 
         }
 
         private void cmdStartGame_Click(object sender, RoutedEventArgs e)
         {
-            int gameNum = 0;
-            if ((bool)rAddition.IsChecked)
-            {
-                gameNum = 0;
-            }
-            else if ((bool)rSubtraction.IsChecked)
-            {
-                gameNum = 1;
 
-            }
-            else if ((bool)rMultiplication.IsChecked)
+            try
             {
-                gameNum = 2;
+                int gameNum = 0;
+                if ((bool)rAddition.IsChecked)
+                {
+                    gameNum = 0;
+                }
+                else if ((bool)rSubtraction.IsChecked)
+                {
+                    gameNum = 1;
 
-            }
-            else if ((bool)rDivision.IsChecked)
-            {
-                gameNum = 3;
+                }
+                else if ((bool)rMultiplication.IsChecked)
+                {
+                    gameNum = 2;
 
-            }
+                }
+                else if ((bool)rDivision.IsChecked)
+                {
+                    gameNum = 3;
 
-            if (User.setBoth(txtUsername.Text, txtAge.Text, gameNum))
-            {
+                }
+                int setValues = User.setBoth(txtUsername.Text, txtAge.Text, gameNum);
                 lblNameError.Visibility = Visibility.Collapsed;
                 lblAgeError.Visibility = Visibility.Collapsed;
-                this.Hide();
-                gameWindow = new gameWindow();
-                gameWindow.ShowDialog();
-
-                if (gameWindow.GameOver == true)
+                
+                if (setValues == 2)
                 {
-                    scoreWindow = new();
-                    scoreWindow.ShowDialog();
-                }
 
-                this.Show();
+                    this.Hide();
+                    gameWindow = new gameWindow();
+                    gameWindow.ShowDialog();
+
+                    if (gameWindow.GameOver == true)
+                    {
+                        scoreWindow = new();
+                        scoreWindow.ShowDialog();
+                    }
+
+                    this.Show();
+                }
+                else if (setValues == 1)
+                {
+                    lblNameError.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    lblAgeError.Visibility = Visibility.Visible;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                lblAgeError.Visibility = Visibility.Visible;
-                lblNameError.Visibility = Visibility.Visible;
+                //Just throw the exception
+                throw new Exception(MethodInfo.GetCurrentMethod().DeclaringType.Name + "." + MethodInfo.GetCurrentMethod().Name + " -> " + ex.Message);
             }
         }
 
@@ -108,7 +133,25 @@ namespace Assignment5
             catch (Exception ex)
             {
                 System.IO.File.AppendAllText("C:\\Error.txt", Environment.NewLine +
-                                            "HandleError Exception: " + ex.Message);
+                                             "HandleError Exception: " + ex.Message);
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+            try
+            {
+                scoreWindow = new();
+                this.Hide();
+                scoreWindow.ShowDialog();
+
+                this.Show();
+            }
+            catch (Exception ex)
+            {
+                //Just throw the exception
+                throw new Exception(MethodInfo.GetCurrentMethod().DeclaringType.Name + "." + MethodInfo.GetCurrentMethod().Name + " -> " + ex.Message);
             }
         }
     }

@@ -20,11 +20,11 @@
 
     <ImageSource x:Key="Jungle1">Resources/Images/Wallpapers/Jungle (1).png</ImageSource>
     <ImageSource x:Key="Jungle2">Resources/Images/Wallpapers/Jungle (2).png</ImageSource>
-    <ImageSource x:Key="Jungle4">Resources/Images/Wallpapers/Jungle (4).png</ImageSource>
-    <ImageSource x:Key="Jungle5">Resources/Images/Wallpapers/Jungle (5).png</ImageSource>
-    <ImageSource x:Key="Jungle6">Resources/Images/Wallpapers/Jungle (6).png</ImageSource>
-    <ImageSource x:Key="Jungle7">Resources/Images/Wallpapers/Jungle (7).png</ImageSource>
-    <ImageSource x:Key="Jungle8">Resources/Images/Wallpapers/Jungle (8).png</ImageSource>
+    <ImageSource x:Key="Jungle3">Resources/Images/Wallpapers/Jungle (4).png</ImageSource>
+    <ImageSource x:Key="Jungle4">Resources/Images/Wallpapers/Jungle (5).png</ImageSource>
+    <ImageSource x:Key="Jungle5">Resources/Images/Wallpapers/Jungle (6).png</ImageSource>
+    <ImageSource x:Key="Jungle6">Resources/Images/Wallpapers/Jungle (7).png</ImageSource>
+    <ImageSource x:Key="Jungle7">Resources/Images/Wallpapers/Jungle (8).png</ImageSource>
 
     <ImageSource x:Key="Warped1">Resources/Images/Wallpapers/Warped (1).png</ImageSource>
     <ImageSource x:Key="Warped2">Resources/Images/Wallpapers/Warped (2).png</ImageSource>

@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Assignment5
 {
@@ -13,40 +9,51 @@ namespace Assignment5
         static private int age;
         static public int game;
 
-        static public string UserName { get { return username; }}
-        static public int Age { 
-            get { return age; } 
+        static public string UserName { get { return username; } }
+        static public int Age
+        {
+            get
+            {
+                try
+                {
+                    return age;
+                }
+                catch (Exception ex)
+                {
+                    //Just throw the exception
+                    throw new Exception(MethodInfo.GetCurrentMethod().DeclaringType.Name + "." + MethodInfo.GetCurrentMethod().Name + " -> " + ex.Message);
+                }
+            }
         }
 
-        static public bool setBoth(string Username, string ageString, int gameNum)
+        static public int setBoth(string Username, string ageString, int gameNum)
         {
             try
             {
-                if(Username == "")
+                if (Username == "")
                 {
-                    return false;
+                    return 1;
                 }
                 username = Username;
-                int ageNum;
-                if(int.TryParse(ageString.Trim(), out age))
+                if (int.TryParse(ageString.Trim(), out age))
                 {
-                    if(age < 3)
+                    if (age < 3)
                     {
-                        return false;
+                        return 0;
                     }
-                    else if(age > 10)
+                    else if (age > 10)
                     {
-                        return false;
+                        return 0;
                     }
                 }
                 else
                 {
-                    return false;
+                    return 0;
                 }
 
                 game = gameNum;
 
-                return true;
+                return 2;
             }
             catch (Exception ex)
             {

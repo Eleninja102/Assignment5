@@ -37,9 +37,13 @@
     <None Remove="Resources\Images\Wallpapers\Warped %282%29.png" />
     <None Remove="Resources\Images\Wallpapers\Warped %283%29.png" />
     <None Remove="Resources\Images\Wallpapers\Warped %284%29.png" />
+    <None Remove="Resources\WetHands.wav" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\WetHands.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Resources\Fonts\minecraft_font.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
