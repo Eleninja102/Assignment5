@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Assignment5"
         mc:Ignorable="d"
-        Title="FinalScore" Height="450" Width="800" FontFamily="Minecraft" Closing="Window_Closing">
+        Title="FinalScore" Height="481" Width="800" FontFamily="Minecraft" Closing="Window_Closing">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -16,6 +16,7 @@
             <Grid>
                 <Label Content="Top Ten" HorizontalAlignment="Center" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontSize="24"/>
                 <DataGrid x:Name="gbScore" d:ItemsSource="{d:SampleData ItemCount=10}" Margin="78,45,78,32" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserSortColumns="False" IsReadOnly="True" AlternatingRowBackground="#FFE6E6E6"/>
+                <Button x:Name="cmdCloseScreen" Content="Return to Main Menu" HorizontalAlignment="Right" Margin="0,260,10,0" VerticalAlignment="Top" Click="cmdCloseScreen_Click"/>
 
             </Grid>
         </ScrollViewer>

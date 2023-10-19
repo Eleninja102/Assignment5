@@ -97,5 +97,25 @@ namespace Assignment5
             }
 
         }
+
+
+        /// <summary>
+        /// Close the screen when the button is pressed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <exception cref="Exception"></exception>
+        private void cmdCloseScreen_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                this.Hide();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(MethodInfo.GetCurrentMethod().DeclaringType.Name + "." + MethodInfo.GetCurrentMethod().Name + " -> " + ex.Message);
+
+            }
+        }
     }
 }
