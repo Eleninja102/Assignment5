@@ -146,7 +146,7 @@ namespace Assignment5
                 for (int i = 0; i <= count; i++)
                 {
                     int x = (int)Math.Floor(Math.Abs(rnd.NextDouble() - rnd.NextDouble()) * (1 + 10 - 0) + 0); //https://gamedev.stackexchange.com/questions/116832/random-number-in-a-range-biased-toward-the-low-end-of-the-range
-                    lMultiplication.Add(new Multiplication($"Cole{i}", rnd.Next(0, 11), x, rnd.Next(32000, 320000)));
+                    lMultiplication.Add(new Multiplication($"Cole{i}", rnd.Next(0, 11), x, rnd.Next(20000, 200000)));
                 }
                 for (int i = 0; i <= count; i++)
                 {
@@ -155,7 +155,7 @@ namespace Assignment5
                 for (int i = 0; i <= count; i++)
                 {
                     int x = (int)Math.Floor(Math.Abs(rnd.NextDouble() - rnd.NextDouble()) * (1 + 10 - 1) + 1);
-                    lDivision.Add(new Division($"Carlos{i}", rnd.Next(0, 11), rnd.Next(0, 11), rnd.Next(32000, 320000)));
+                    lDivision.Add(new Division($"Carlos{i}", rnd.Next(0, 11), rnd.Next(0, 11), rnd.Next(20000, 200000)));
                 }
             }
             catch (Exception ex)
