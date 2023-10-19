@@ -13,27 +13,53 @@ namespace Assignment5
     /// </summary>
     public partial class gameWindow : Window
     {
+        /// <summary>
+        /// Holds the game object no matter whether it is a addition, division, etc. polymorphism
+        /// </summary>
         private BaseGame game;
-        private int gameRounds = 0;
-        private Stopwatch gameStopwatch = new Stopwatch();
+        /// <summary>
+        /// Holds the stopwatch used in the game to keep track of ingame time
+        /// </summary>
+        private Stopwatch gameStopwatch = new();
+        /// <summary>
+        /// exist to hold how long the correct label should exist on screen
+        /// </summary>
         private DispatcherTimer correctTimer = new();
-        private DispatcherTimer clock;
+        /// <summary>
+        /// Holds all the timer in order to update the clock object every second 
+        /// </summary>
+        private DispatcherTimer clock = new();
+        /// <summary>
+        /// Holds whether the game has ended
+        /// </summary>
         private bool gameOver = false;
-        private readonly Random rnd = new Random();
+
+        /// <summary>
+        /// Used to select a random question from the set.
+        /// </summary>
+        private readonly Random rnd = new();
+
+        /// <summary>
+        /// Constructors the screen and sets all the values on the screen to the start data. Also creates the game
+        /// </summary>
+        /// <exception cref="Exception">Generic exception that send the given location of the error</exception>
         public gameWindow()
         {
             //Throw statement 
             try
             {
-                clock = new DispatcherTimer();
                 InitializeComponent();
+
                 gdGameBoard.Visibility = Visibility.Collapsed;
                 cmdSubmit.Visibility = Visibility.Collapsed;
                 cmdStartGame.Visibility = Visibility.Visible;
+
                 clock.Interval = TimeSpan.FromSeconds(1);
                 clock.Tick += new EventHandler(updateClock);
+
                 correctTimer.Interval = TimeSpan.FromSeconds(0.5);
-                correctTimer.Tick += new EventHandler(updateScreen);
+                correctTimer.Tick += new EventHandler(clearCorrect);
+
                 lbTime.Content = "";
                 switch (User.game)
                 {
@@ -68,14 +94,29 @@ namespace Assignment5
                 //Just throw the exception
                 throw new Exception(MethodInfo.GetCurrentMethod().DeclaringType.Name + "." + MethodInfo.GetCurrentMethod().Name + " -> " + ex.Message);
             }
-
-
-
         }
+        
+        /// <summary>
+        /// returns whether the game has ended or not
+        /// </summary>
+        public bool GameOver { get {
+                try
+                {
+                    return gameOver;
+                }
+                catch (Exception ex)
+                {
+                    //Just throw the exception
+                    throw new Exception(MethodInfo.GetCurrentMethod().DeclaringType.Name + "." + MethodInfo.GetCurrentMethod().Name + " -> " + ex.Message);
+                }
+            } }
 
-        public bool GameOver { get { return gameOver; } }
-
-
+        /// <summary>
+        /// Updates the clock on the screen every second
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <exception cref="Exception">Generic exception that send the given location of the error</exception>
         private void updateClock(object sender, EventArgs e)
         {
             //Throw statement 
@@ -92,8 +133,13 @@ namespace Assignment5
 
         }
 
-
-        private void updateScreen(object sender, EventArgs e)
+        /// <summary>
+        /// Clears the incorrect/correct label and changes the question
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <exception cref="Exception">Generic exception that send the given location of the error</exception>
+        private void clearCorrect(object sender, EventArgs e)
         {
 
             //Throw statement 
@@ -110,7 +156,12 @@ namespace Assignment5
             }
 
         }
-
+        /// <summary>
+        /// Is run when the screen is closed. We can delete the instance as it allows the user to change the details 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <exception cref="Exception">Generic exception that send the given location of the error</exception>
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
 
@@ -128,6 +179,12 @@ namespace Assignment5
 
         }
 
+        /// <summary>
+        /// When pressed it starts the clocks and changes the screen to show the questions
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <exception cref="Exception">Generic exception that send the given location of the error</exception>
         private void cmdStartGame_Click(object sender, RoutedEventArgs e)
         {
 
@@ -149,6 +206,12 @@ namespace Assignment5
             }
         }
 
+        /// <summary>
+        /// When the submit button is pressed or the enter is sent it sends the answer to be checked then show the respective label plus image
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <exception cref="Exception">Generic exception that send the given location of the error</exception>
         private void cmdSubmit_Click(object sender, RoutedEventArgs e)
         {
             //Throw statement 
@@ -170,7 +233,7 @@ namespace Assignment5
                     lbCorrect.Content = "Incorrect";
                     lbCorrect.Visibility = Visibility.Visible;
                 }
-                correctTimer.Start();
+                correctTimer.Start(); //starts how long the correct screen should exist
 
 
             }
@@ -181,24 +244,27 @@ namespace Assignment5
             }
 
         }
-
+        /// <summary>
+        /// Updates the numbers on screen to match the given question. Clears the textbox
+        /// </summary>
+        /// <exception cref="Exception">Generic exception that send the given location of the error</exception>
         private void updateBoard()
         {
             //Throw statement 
             try
             {
-                if (gameRounds < 10)
-                {
-                    var numbers = game.setQuestion();
-                    txtAnswer.Text = null;
-                    gameRounds += 1;
-                    lbFirstNum.Content = numbers.Item1;
-                    lbSecondNum.Content = numbers.Item2;
-                }
-                else
+                if (!game.gameContinue())
                 {
                     endGame();
                 }
+                else
+                {
+                    var numbers = game.setQuestion();
+                    txtAnswer.Text = null;
+                    lbFirstNum.Content = numbers.Item1;
+                    lbSecondNum.Content = numbers.Item2;
+                }
+
             }
             catch (Exception ex)
             {
@@ -207,11 +273,17 @@ namespace Assignment5
             }
         }
 
+        /// <summary>
+        /// Returns to the main windows screen, stops all counters and sets the gametime.
+        /// </summary>
+        /// <exception cref="Exception">Generic exception that send the given location of the error</exception>
         private void endGame()
         {
             try
             {
                 gameStopwatch.Stop();
+                correctTimer.Stop();
+                clock.Stop();
                 game.setTime(gameStopwatch);
                 gameOver = true;
                 LeaderBoards.addStat(game);
@@ -225,6 +297,13 @@ namespace Assignment5
             }
         }
 
+
+        /// <summary>
+        /// Test whether the enter button has been pressed at and responds with either starting the game, clearing the answer was correct screen or submitting the question
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <exception cref="Exception">Generic exception that send the given location of the error</exception>
         private void enter_pressed(object sender, System.Windows.Input.KeyEventArgs e)
         {
             //Throw statement 
@@ -238,7 +317,7 @@ namespace Assignment5
                     }
                     else if (correctTimer.IsEnabled == true)
                     {
-                        updateScreen(sender, e);
+                        clearCorrect(sender, e);
                     }
                     else
                     {

@@ -9,9 +9,12 @@ namespace Assignment5
     /// </summary>
     public partial class finalScoreWindow : Window
     {
+        /// <summary>
+        /// Creates the leaderboard screen for the given game that was played last
+        /// </summary>
+        /// <exception cref="Exception">Generic exception that send the given location of the error</exception>
         public finalScoreWindow()
         {
-
             try
             {
                 InitializeComponent();
@@ -32,6 +35,7 @@ namespace Assignment5
                     lbTitle.Content = "Division";
                 }
                 gbScore.ItemsSource = LeaderBoards.topTen();
+
                 if (LeaderBoards.LastGame == null)
                 {
                     lbUsername.Visibility = Visibility.Collapsed;
@@ -50,6 +54,7 @@ namespace Assignment5
                         if (t == LeaderBoards.LastGame)
                         {
                             lbLeaderboard.Content = "YOU MADE THE LEADERBOARDS!!";
+                            break;
                         }
                     }
 
@@ -70,6 +75,12 @@ namespace Assignment5
 
 
 
+        /// <summary>
+        /// Controls the event when the screen is closed. We don't need to save the screen as the screen attributes are created when initialized 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <exception cref="Exception">Generic exception that send the given location of the error</exception>
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
 

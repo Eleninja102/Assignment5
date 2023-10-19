@@ -10,14 +10,25 @@ namespace Assignment5
     /// </summary>
     public partial class MainWindow : Window
     {
-
+        /// <summary>
+        /// Initializes the gamewindow object
+        /// </summary>
         gameWindow gameWindow;
+        /// <summary>
+        /// Initializes the scorewindow object
+        /// </summary>
         finalScoreWindow scoreWindow;
+
+        /// <summary>
+        /// Initializes and sets the musicplayer to play the given song
+        /// </summary>
         SoundPlayer simpleSound = new SoundPlayer("WetHands.wav");
 
 
 
-
+        /// <summary>
+        /// Constructs the mainwindow object and starts playing music
+        /// </summary>
         public MainWindow()
         {
 
@@ -30,7 +41,7 @@ namespace Assignment5
 
 
                 Application.Current.ShutdownMode = ShutdownMode.OnMainWindowClose;
-                gameStart();
+                attributeStartSetter();
             }
             catch (Exception ex)
             {
@@ -38,8 +49,11 @@ namespace Assignment5
                 HandleError(MethodInfo.GetCurrentMethod().DeclaringType.Name, MethodInfo.GetCurrentMethod().Name, ex.Message);
             }
         }
-
-        private void gameStart()
+        /// <summary>
+        /// Removes any labels and loads the screen with the data used in the last game or just defaults to zero.
+        /// </summary>
+        /// <exception cref="Exception">Generic exception that send the given location of the error</exception>
+        private void attributeStartSetter()
         {
 
             try
@@ -62,12 +76,18 @@ namespace Assignment5
 
         }
 
+
+        /// <summary>
+        /// Is done when the start game is pressed. Grabs all the on screen data and sends it to the User class
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <exception cref="Exception">Generic exception that send the given location of the error</exception>
         private void cmdStartGame_Click(object sender, RoutedEventArgs e)
         {
-
             try
             {
-                int gameNum = 0;
+                int gameNum; //Holds the respective selected data 0=add 1=sub 2=multi 3=div
                 if ((bool)rAddition.IsChecked)
                 {
                     gameNum = 0;
@@ -86,6 +106,10 @@ namespace Assignment5
                 {
                     gameNum = 3;
 
+                }
+                else
+                {
+                    gameNum = 0; //technically should never happen as one radio button is always selected
                 }
                 int setValues = User.setBoth(txtUsername.Text, txtAge.Text, gameNum);
                 lblNameError.Visibility = Visibility.Collapsed;
@@ -106,7 +130,7 @@ namespace Assignment5
 
                     this.Show();
                 }
-                else if (setValues == 1)
+                else if (setValues == 0)
                 {
                     lblNameError.Visibility = Visibility.Visible;
                 }
@@ -122,7 +146,12 @@ namespace Assignment5
             }
         }
 
-
+        /// <summary>
+        /// Takes the given error from the entire program and prints a messagebox with the error. Also creates a txt file
+        /// </summary>
+        /// <param name="sClass">The last class used</param>
+        /// <param name="sMethod"> The last method used</param>
+        /// <param name="sMessage">The last message error sent</param>
         private void HandleError(string sClass, string sMethod, string sMessage)
         {
             try
@@ -137,6 +166,12 @@ namespace Assignment5
             }
         }
 
+        /// <summary>
+        /// A button that existed during testing to show the leaderboard screen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <exception cref="Exception">Generic exception that send the given location of the error</exception>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
