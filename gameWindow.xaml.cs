@@ -3,7 +3,6 @@ using System.Diagnostics;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 
 namespace Assignment5
@@ -95,11 +94,14 @@ namespace Assignment5
                 throw new Exception(MethodInfo.GetCurrentMethod().DeclaringType.Name + "." + MethodInfo.GetCurrentMethod().Name + " -> " + ex.Message);
             }
         }
-        
+
         /// <summary>
         /// returns whether the game has ended or not
         /// </summary>
-        public bool GameOver { get {
+        public bool GameOver
+        {
+            get
+            {
                 try
                 {
                     return gameOver;
@@ -109,7 +111,8 @@ namespace Assignment5
                     //Just throw the exception
                     throw new Exception(MethodInfo.GetCurrentMethod().DeclaringType.Name + "." + MethodInfo.GetCurrentMethod().Name + " -> " + ex.Message);
                 }
-            } }
+            }
+        }
 
         /// <summary>
         /// Updates the clock on the screen every second
@@ -196,7 +199,7 @@ namespace Assignment5
                 gdGameBoard.Visibility = Visibility.Visible;
                 cmdSubmit.Visibility = Visibility.Visible;
                 cmdStartGame.Visibility = Visibility.Collapsed;
-                
+
                 updateBoard();
             }
             catch (Exception ex)
@@ -311,17 +314,20 @@ namespace Assignment5
             {
                 if (e.Key == System.Windows.Input.Key.Enter)
                 {
-                    if(game == null)
+                    if (cmdStartGame.Visibility != Visibility.Visible)
                     {
-                        cmdStartGame_Click(sender, e);
-                    }
-                    else if (correctTimer.IsEnabled == true)
-                    {
-                        clearCorrect(sender, e);
-                    }
-                    else
-                    {
-                        cmdSubmit_Click(sender, e);
+                        if (game == null)
+                        {
+                            cmdStartGame_Click(sender, e);
+                        }
+                        else if (correctTimer.IsEnabled == true)
+                        {
+                            clearCorrect(sender, e);
+                        }
+                        else
+                        {
+                            cmdSubmit_Click(sender, e);
+                        }
                     }
                 }
             }

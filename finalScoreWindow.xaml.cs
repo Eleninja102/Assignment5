@@ -34,6 +34,7 @@ namespace Assignment5
                 {
                     lbTitle.Content = "Division";
                 }
+
                 gbScore.ItemsSource = LeaderBoards.topTen();
 
                 if (LeaderBoards.LastGame == null)
@@ -49,7 +50,7 @@ namespace Assignment5
                 else
                 {
 
-                    foreach (BaseGame t in LeaderBoards.topTen())
+                    foreach (BaseGame t in gbScore.ItemsSource)
                     {
                         if (t == LeaderBoards.LastGame)
                         {

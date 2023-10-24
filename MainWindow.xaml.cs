@@ -66,7 +66,7 @@ namespace Assignment5
                 {
                     txtAge.Text = User.Age.ToString();
                 }
-                LeaderBoards.fillStats(100);
+              // LeaderBoards.fillStats(100);
             }
             catch (Exception ex)
             {

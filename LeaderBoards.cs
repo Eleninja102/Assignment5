@@ -48,44 +48,52 @@ namespace Assignment5
         /// Grabs the top 10 stats from the corresponding list 
         /// </summary>
         /// <returns>An array of size 10 sorted</returns>
-        public static BaseGame[] topTen()
+        public static List<BaseGame> topTen()
         {
-            BaseGame[] result = new BaseGame[10];
-            if (gameMode == 0)
+            try
             {
-                lAddition = sortList(lAddition);
-                for (int i = 0; i < 10; i++)
+                List<BaseGame> result = new();
+                if (gameMode == 0)
                 {
-                    result[i] = lAddition[i];
+                    lAddition = sortList(lAddition);
+                    for (int i = 0; i < (lAddition.Count < 10 ? lAddition.Count : 10); i++) // if lAddition.Count is less then 10 use the length else get 10
+                    {
+                        result.Add(lAddition[i]);
+                    }
                 }
-            }
-            else if (gameMode == 1)
-            {
-                lSubtraction = sortList(lSubtraction);
-                for (int i = 0; i < 10; i++)
+                else if (gameMode == 1)
                 {
-                    result[i] = lSubtraction[i];
+                    lSubtraction = sortList(lSubtraction);
+                    for (int i = 0; i < 10; i++)
+                    {
+                        result[i] = lSubtraction[i];
+                    }
                 }
-            }
-            else if (gameMode == 2)
-            {
-                lMultiplication = sortList(lMultiplication);
-                for (int i = 0; i < 10; i++)
+                else if (gameMode == 2)
                 {
-                    result[i] = lMultiplication[i];
+                    lMultiplication = sortList(lMultiplication);
+                    for (int i = 0; i < 10; i++)
+                    {
+                        result[i] = lMultiplication[i];
+                    }
                 }
-            }
-            else if (gameMode == 3)
-            {
-                lDivision = sortList(lDivision);
-                for (int i = 0; i < 10; i++)
+                else if (gameMode == 3)
                 {
-                    result[i] = lDivision[i];
+                    lDivision = sortList(lDivision);
+                    for (int i = 0; i < 10; i++)
+                    {
+                        result[i] = lDivision[i];
+                    }
                 }
-            }
 
 
-            return result;
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(MethodInfo.GetCurrentMethod().DeclaringType.Name + "." + MethodInfo.GetCurrentMethod().Name + " -> " + ex.Message);
+
+            }
         }
 
         /// <summary>
