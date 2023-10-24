@@ -41,8 +41,30 @@ namespace Assignment5
         /// </summary>
         static public int GameMode
         {
-            get { return gameMode; }
-            set { gameMode = value; }
+            get
+            {
+                try
+                {
+                    return gameMode;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(MethodInfo.GetCurrentMethod().DeclaringType.Name + "." + MethodInfo.GetCurrentMethod().Name + " -> " + ex.Message);
+
+                }
+            }
+            set
+            {
+                try
+                {
+                    gameMode = value;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(MethodInfo.GetCurrentMethod().DeclaringType.Name + "." + MethodInfo.GetCurrentMethod().Name + " -> " + ex.Message);
+
+                }
+            }
         }
         /// <summary>
         /// Grabs the top 10 stats from the corresponding list 
