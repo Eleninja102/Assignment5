@@ -64,25 +64,25 @@ namespace Assignment5
                 else if (gameMode == 1)
                 {
                     lSubtraction = sortList(lSubtraction);
-                    for (int i = 0; i < 10; i++)
+                    for (int i = 0; i < (lSubtraction.Count < 10 ? lSubtraction.Count : 10); i++) // if lSubtraction.Count is less then 10 use the length else get 10
                     {
-                        result[i] = lSubtraction[i];
+                        result.Add(lSubtraction[i]);
                     }
                 }
                 else if (gameMode == 2)
                 {
                     lMultiplication = sortList(lMultiplication);
-                    for (int i = 0; i < 10; i++)
+                    for (int i = 0; i < (lMultiplication.Count < 10 ? lMultiplication.Count : 10); i++) // if lMultiplication.Count is less then 10 use the length else get 10
                     {
-                        result[i] = lMultiplication[i];
+                        result.Add(lMultiplication[i]);
                     }
                 }
                 else if (gameMode == 3)
                 {
                     lDivision = sortList(lDivision);
-                    for (int i = 0; i < 10; i++)
+                    for (int i = 0; i < (lDivision.Count < 10 ? lDivision.Count : 10); i++) // if lDivision.Count is less then 10 use the length else get 10
                     {
-                        result[i] = lDivision[i];
+                        result.Add(lDivision[i]);
                     }
                 }
 
